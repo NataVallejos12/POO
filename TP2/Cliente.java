@@ -1,20 +1,24 @@
 
 /**
- * Write a description of class Cliente here.
+ * Trabajo Practico 2 - Clase que crea un Cliente.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Nataniel Vallejos
+ * @version 1.0
  */
+
 public class Cliente
 {
-    // instance variables - replace the example below with your own
     private int nroDNI;
     private String apellido;
     private String nombre;
     private double saldo;
     
     /**
-     * Constructor for objects of class Laboratorio
+     * Constructor completo.
+     * @param p_DNI Numero de DNI
+     * @param p_apellido Apellido
+     * @param p_nombre Nombre
+     * @param p_saldo Saldo
      */
     Cliente(int p_DNI, String p_apellido, String p_nombre, double p_saldo)
     {
@@ -35,29 +39,50 @@ public class Cliente
     public int getNroDNI(){return this.nroDNI;}
     public double getSaldo(){return this.saldo;}
     
+    /** 
+     * Agrega un saldo al saldo actual.
+     * @param p_importe Importe
+     * @return importe actualizado.
+     */
     public double agregaSaldo(double p_importe){
         this.saldo += p_importe;
         return this.saldo;
     }
     
+    /** 
+     * Reemplaza el saldo actual.
+     * @param p_importe Importe
+     * @return saldo nuevo actualizado.
+     */
     public double nuevoSaldo(double p_importe)
     {
         this.saldo = p_importe;
         return this.saldo;
     }
     
+    /** 
+     * Devuelve el nombre y apellido.
+     * @return nombre y apellido.
+     */
     public String nomYape(){
-        return getNombre() + " " + getApellido();
+        return this.getNombre() + " " + this.getApellido();
     }
     
+    /** 
+     * Devuelve el apellido y nombre.
+     * @return apellido y nombre.
+     */
     public String apeYnom(){
-        return getApellido() + " " +getNombre();
+        return this.getApellido() + " " + this.getNombre();
     }
     
+    /** 
+     * Muestra la información solicitada.
+     */
     public void mostrar(){
         System.out.println("- Cliente - "); 
-        System.out.println("Nombre y Apellido: " + nomYape() + " (" + getNroDNI() + ")");
-        System.out.println("Saldo: $" + getSaldo());
+        System.out.println("Nombre y Apellido: " + this.nomYape() + " (" + this.getNroDNI() + ")");
+        System.out.println("Saldo: $" + this.getSaldo());
     }
 
 

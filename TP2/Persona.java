@@ -1,31 +1,34 @@
 import java.util.*;
 /**
- * Write a description of class Persona here.
+ * Trabajo Practico 2 - Clase que crea una Persona.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Nataniel Vallejos
+ * @version 1.0
  */
+
 public class Persona
 {
-    // instance variables - replace the example below with your own
     private int nroDNI;
     private String nombre;
     private String apellido;
     private int anioNacimiento;
     
-
     /**
-     * Constructor for objects of class Persona
-     */
+     * Constructor de Persona
+     * @param p_dni DNI
+     * @param p_nombre Nombre
+     * @param p_apellido Apellido
+     * @param p_anio Año de nacimiento
+    */
     public Persona(int p_DNI, String p_nombre, String p_apellido, int p_anio)
     {
-        // initialise instance variables
         this.nroDNI = p_DNI;
         this.nombre = p_nombre;
         this.apellido = p_apellido;
         this.anioNacimiento = p_anio;
     }
     
+    //Setters
     private void setDNI(int p_DNI){
         this.nroDNI = p_DNI;
     }
@@ -39,6 +42,7 @@ public class Persona
         this.anioNacimiento = p_anio;
     }
     
+    //Getters
     public int getDNI(){
         return nroDNI;
     }
@@ -52,23 +56,32 @@ public class Persona
         return anioNacimiento;
     }
     
+    /**
+     * Devuelve edad considerando solo diferencia de años.
+     * @return edad en años
+     */
     public int edad(){
         Calendar fechaHoy = new GregorianCalendar();
         int anioHoy = fechaHoy.get(Calendar.YEAR);
         return anioHoy - this.anioNacimiento ;
     }
     
+    /** @return "Nombre Apellido" */
     public String nomYApe(){
         return getNombre() + " " + getApellido();
     }
     
+    /** @return "Apellido, Nombre" */
     public String apeYNom(){
         return getApellido() + " " +getNombre();
     }
     
+    /**
+     * Imprime la información de la Persona.
+     */
     public void mostrar(){
         System.out.println("Nombre y apellido: " + nomYApe());
         System.out.println("DNI: " + getDNI() + "\tEdad: " + edad());
     }
     
-}
+} //Fin clase Persona
